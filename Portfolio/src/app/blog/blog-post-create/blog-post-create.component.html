@@ -1,3 +1,16 @@
-<p>
-  blog-post-create works!
-</p>
+<section>
+  <h1>Add a blog post:</h1>
+  <form [formGroup]='form' (ngSubmit)='addPost(form)' novalidate>
+    <p>
+      <label>Title:</label>
+      <input type="text" formControlName="title" placeholder="title">
+    </p>
+    <p>
+      <label>Content:</label>
+      <input type="text" formControlName="content" placeholder="content">
+    </p>
+    <p>
+      <button type="submit" [disabled]="!form.valid">Add</button>
+    </p>
+  </form>
+</section>

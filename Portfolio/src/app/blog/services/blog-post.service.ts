@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { BlogPost, PageFilter } from './models';
+import { BlogPost, PageFilter } from '../models';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -18,9 +18,23 @@ export class BlogPostService {
   }
 
   /**
-   * Creates blog post
+   * Creates Blog Post, returns id for created Blog Post
    */
-  public CreateBlogPost() {
+  public CreateBlogPost(item: BlogPost): Observable<string> {
+    return this.http.post<string>(this.endpoint, item);
+  }
 
+  /**
+   * Updates Blog Post
+   */
+  public UpdateBlogPost(item: BlogPost): Observable<string> {
+    return this.http.patch<string>(this.endpoint, item);
+  }
+
+  /**
+   * DeleteBlogPost
+   */
+  public DeleteBlogPost(id: string) {
+    return this.http.delete(this.endpoint, { params: { id: id } });
   }
 }
