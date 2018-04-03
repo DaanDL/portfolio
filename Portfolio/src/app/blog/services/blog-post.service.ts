@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class BlogPostService {
-  private readonly endpoint = '/blog-post';
+  private readonly endpoint = 'api/blogposts';
 
   constructor(private http: HttpClient) { }
 
@@ -14,7 +14,8 @@ export class BlogPostService {
    */
   public ListBlogPosts(filter: PageFilter): Observable<BlogPost[]> {
     const data: any = filter;
-    return this.http.get<BlogPost[]>(this.endpoint, { params: data });
+    // return this.http.get<BlogPost[]>(this.endpoint, { params: data });
+    return this.http.get<any[]>(this.endpoint);
   }
 
   /**

@@ -6,7 +6,7 @@ import { RouterModule, Router, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LandingModule } from './landing/landing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     ModuleRouting,
     LandingModule,
     BlogModule

@@ -1,3 +1,7 @@
+import { PageFilter } from './../models/page-filter.model';
+import { BlogPost } from './../models/blog-post.model';
+import { Observable } from 'rxjs/Observable';
+import { BlogPostService } from './../services/blog-post.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog-post-list.component.scss']
 })
 export class BlogPostListComponent implements OnInit {
-
-  constructor() { }
+  blogPostList$: Observable<BlogPost[]>;
+  constructor(private blogPostService: BlogPostService) { }
 
   ngOnInit() {
+    const pageFilter: PageFilter = new PageFilter();
+    this.blogPostList$ = this.blogPostService.ListBlogPosts(pageFilter);
   }
 
 }

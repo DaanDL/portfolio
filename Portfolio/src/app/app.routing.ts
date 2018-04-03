@@ -5,17 +5,17 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/landing',
-    pathMatch: 'full'
-  },
-  {
     path: 'landing',
     component: LandingComponent
   },
   {
     path: 'blog',
     loadChildren: './blog/blog.module#BlogModule'
+  },
+  {
+    path: '',
+    redirectTo: '/landing',
+    pathMatch: 'full'
   },
   {
     path: '**',
