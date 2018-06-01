@@ -1,6 +1,6 @@
 import { PageFilter } from './../models/page-filter.model';
 import { BlogPost } from './../models/blog-post.model';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { BlogPostService } from './../services/blog-post.service';
 import { Component, OnInit } from '@angular/core';
 

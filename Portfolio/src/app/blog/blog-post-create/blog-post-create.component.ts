@@ -2,6 +2,7 @@ import { BlogPost } from '../models';
 import { BlogPostService } from '../services';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-blog-post-create',
@@ -24,6 +25,7 @@ export class BlogPostCreateComponent implements OnInit {
   addPost({ value, valid }: { value: BlogPost, valid: boolean }) {
     this.blogPostService
       .CreateBlogPost(value)
+      .pipe(take(1))
       .subscribe();
   }
 
